@@ -2,7 +2,7 @@
 
 <img alt="Example Icon" src="src/main/resources/assets/modid/icon.png" width="128">
 
-# Fabric Example Mod
+# Fabric Example Mod 
 
 Lorem ipsum dolor sit amet
 
