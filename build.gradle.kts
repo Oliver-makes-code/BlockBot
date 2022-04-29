@@ -2,7 +2,7 @@ plugins {
     java
     id("maven-publish")
     id("fabric-loom") version "0.10.+"
-    kotlin("jvm") version "1.6.0"
+    kotlin("jvm") version "1.6.10"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     kotlin("plugin.serialization") version "1.5.21"
 }
@@ -87,6 +87,7 @@ repositories {
     mavenCentral()
     maven("https://maven.nucleoid.xyz/")
     maven("https://maven.kotlindiscord.com/repository/maven-public/")
+    maven("https://maven.bymartrixx.me")
 }
 
 dependencies {
@@ -96,8 +97,9 @@ dependencies {
     include(libs.placeholder.api)
 
     shadow(libs.mcDiscordReserializer)
-    modImplementation(libs.adventure.fabric)
-    include(libs.adventure.fabric)
+    shadow(libs.adventure.gson)
+    //modImplementation(libs.adventure.fabric)
+    //include(libs.adventure.fabric)
 
     shadow(libs.kord.extensions)
     shadow(libs.emoji)
@@ -138,7 +140,6 @@ tasks {
         exclude("kotlin/**", "kotlinx/coroutines/**", "kotlinx/serialization/**", "javax/**", "META-INF")
         exclude("org/checkerframework/**", "org/intellij/**", "org/jetbrains/annotations/**")
         exclude("com/google/gson/**")
-        exclude("net/kyori/**")
         exclude("org/slf4j/**")
         exclude("dev/kord/voice/**")
         exclude("org/bouncycastle/**")
@@ -172,6 +173,7 @@ tasks {
         relocate("kotlinx.atomicfu")
         relocate("kotlinx.datetime")
         relocate("org.reflections")
+        relocate("net.kyori")
     }
 }
 
